@@ -53,4 +53,4 @@ These are namespaced under `:couchdb`. They can be configured a few ways:
       :version: 1.1
 
     # `configure` call in app/manifests/application_manifest.rb
-    configure :couchdb => { :version => 1 }
+    configure :couchdb => { :version => '1.1' }
