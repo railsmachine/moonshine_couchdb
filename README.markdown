@@ -54,3 +54,9 @@ These are namespaced under `:couchdb`. They can be configured a few ways:
 
     # `configure` call in app/manifests/application_manifest.rb
     configure :couchdb => { :version => '1.1' }
+
+## In Use
+
+Originally commissioned by [PeepCode Screencasts](http://peepcode.com)
+for use in an internal reporting system hosted at
+[RailsMachine](http://railsmachine.com).
