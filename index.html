@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  File: README
+  
+    &mdash; Moonshine::Couchdb
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Moonshine::Couchdb</h1>
+
+<h2>Introduction</h2>
+
+<p>Welcome to Moonshine::Couchdb, a <a href="http://github.com/railsmachine/moonshine">Moonshine</a> plugin for installing and managing <a href="http://www.couchbase.com/products-and-services/couchbase-single-server">couchdb</a></p>
+
+<p>Here's some quick links:</p>
+
+<ul>
+<li><a href="http://github.com/railsmachine/moonshine_couchdb">Homepage</a></li>
+<li><a href="http://github.com/railsmachine/moonshine_couchdb/issues">Issues</a></li>
+<li><a href="http://github.com/railsmachine/moonshine_couchdb/wiki">Wiki</a></li>
+<li><a href="http://groups.google.com/group/railsmachine-moonshine">Mailing List</a></li>
+<li>Resources for using Couchdb:
+
+<ul>
+<li><a href="http://www.google.com/search?q=couchdb">Couchdb Homepage</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Quick Start</h2>
+
+<p><code>Moonshine::Couchdb</code> is installed like any other Rails plugin:</p>
+
+<pre class="code"><span class='comment val'># Rails 2.x.x</span>
+<span class='script identifier id'>script</span><span class='div op'>/</span><span class='plugin identifier id'>plugin</span> <span class='install identifier id'>install</span> <span class='git identifier id'>git</span><span class='symbol val'>:/</span><span class='regexp val'>/github.com/</span><span class='railsmachine identifier id'>railsmachine</span><span class='div op'>/</span><span class='moonshine_couchdb identifier id'>moonshine_couchdb</span><span class='dot token'>.</span><span class='git identifier id'>git</span>
+<span class='comment val'># Rails 3.x.x</span>
+<span class='script identifier id'>script</span><span class='div op'>/</span><span class='rails identifier id'>rails</span> <span class='plugin identifier id'>plugin</span> <span class='install identifier id'>install</span> <span class='git identifier id'>git</span><span class='symbol val'>:/</span><span class='regexp val'>/github.com/</span><span class='railsmachine identifier id'>railsmachine</span><span class='div op'>/</span><span class='moonshine_couchdb identifier id'>moonshine_couchdb</span><span class='dot token'>.</span><span class='git identifier id'>git</span>
+</pre>
+
+<p>Once it's installed, you can include it in your manifest:</p>
+
+<pre class="code"><span class='comment val'># app/manifests/application_manifest.rb</span>
+<span class='class class kw'>class</span> <span class='ApplicationManifest constant id'>ApplicationManifest</span> <span class='lt op'>&lt;</span> <span class='Moonshine constant id'>Moonshine</span><span class='colon2 op'>::</span><span class='Manifest constant id'>Manifest</span><span class='symbol val'>:Rails</span>
+   <span class='recipe identifier id'>recipe</span> <span class='symbol val'>:couchdb</span>
+<span class='end end kw'>end</span>
+</pre>
+
+<p>Commit and deploy, and there you go.</p>
+
+<h2>Configuration Options</h2>
+
+<p>Here are some</p>
+
+<ul>
+<li><code>:version</code>: a string representing the version to install, defaults to 1.1</li>
+</ul>
+
+
+<p>These are namespaced under <code>:couchdb</code>. They can be configured a few ways:</p>
+
+<pre class="code"><span class='comment val'># in global config/moonshine.yml</span>
+<span class='symbol val'>:couchdb</span><span class='colon op'>:</span>
+  <span class='symbol val'>:version</span><span class='colon op'>:</span> <span class='float val'>1.1</span>
+
+<span class='comment val'># in stage-specific moonshine.yml,</span>
+<span class='comment val'># config/moonshine/staging.yml and config/moonshine/production.yml</span>
+<span class='symbol val'>:couchdb</span><span class='colon op'>:</span>
+  <span class='symbol val'>:version</span><span class='colon op'>:</span> <span class='float val'>1.1</span>
+
+<span class='comment val'># `configure` call in app/manifests/application_manifest.rb</span>
+<span class='configure identifier id'>configure</span> <span class='symbol val'>:couchdb</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:version</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'1.1'</span> <span class='rbrace token'>}</span>
+</pre>
+
+<h2>Literate Documentation</h2>
+
+<p><code>Moonshine::Couchdb</code> uses a literate programming style of documentation, generated by <a href="https://github.com/rtomayko/rocco">rocco</a> . You can view the latest version <a href="http://railsmachine.github.com/moonshine_couchdb">online</a> or by browsing to <a href="lib/moonshine/couchdb.html">lib/moonshine/couchdb.rb</a>.</p>
+
+<h2>In Use</h2>
+
+<p>Originally commissioned by our friends at <a href="http://peepcode.com">PeepCode Screencasts</a>
+for use in an internal reporting system hosted at
+<a href="http://railsmachine.com">Rails Machine</a>.</p></div></div>
+    
+    <div id="footer">
+  Generated on Mon Aug  8 16:11:14 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
