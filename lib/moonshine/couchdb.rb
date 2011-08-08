@@ -25,7 +25,7 @@ module Moonshine
     #
     # Currently, this respects the following options:
     #
-    # * `:version`: version to download, see [download page](download) for what's available
+    # * `:version`: version to download, see the [download page](http://info.couchbase.com/couchbaseCEdownload.html) for what's available
     def couchdb(options = {})
       # couchbase is available online to download, but not from a debian repository.
       # we'll need us some wget and a place to download it to (/usr/local/src)
