@@ -34,10 +34,10 @@ Once it's installed, you can include it in your manifest:
 
 Commit and deploy, and there you go.
 
-Configuration Options
+Configuration
 ---------------------
 
-Here are some 
+Here are the current options availble:
 
  * `:version`: a string representing the version to install, defaults to 1.1
 
