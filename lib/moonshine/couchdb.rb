@@ -36,6 +36,7 @@ module Moonshine
 
       # The couchbase downloads have an architecture in them, but we can rely on Facter for this.
       arch = Facter.architecture
+      arch = 'x86_64' if arch == 'amd64'
       deb_filename = "couchbase-server-community_#{arch}_#{options[:version]}.deb"
       # Download couchbase, like a bau5.
       exec 'download couchbase',
