@@ -66,3 +66,7 @@ In Use
 Originally commissioned by our friends at [PeepCode Screencasts](http://peepcode.com)
 for use in an internal reporting system hosted at
 [Rails Machine](http://railsmachine.com).
+
+***
+
+Unless otherwise specified, all content copyright &copy; 2014, [Rails Machine, LLC](http://railsmachine.com)
